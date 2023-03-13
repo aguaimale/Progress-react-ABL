@@ -1,24 +1,44 @@
-import React from 'react'
+import React, {useState} from 'react'
 
 function Singform() {
-  return (
-    <div className='formlog'>
-        <div className='capos'>
 
-            <p>Inicio de sesion</p>
-            <label htmlFor=""> Ingresa E-mail</label>
-            <input type="email" name="" id="" />
-            <label htmlFor="">Ingresa Contraseña</label>
-            <input type="password" name="" id="" />
+    const [email, setEmail] = useState([]);
+    const [contraseña, setContraseña] = useState([]);
+    const [empresa, setempresa] = useState(["Empresa#1","Empresa#2","Empresa#3","Empresa#4",])
 
-        </div>
-        <div className='divbotones'>
-            <button>Iniciar Sesion</button>
-        </div>
+    function handleSubmit(){
 
+    };
 
-    </div>
-  )
+ 
+
+    return (
+        <form className='formulario1' onSubmit={handleSubmit}>
+            <h4 className='formtitle'>Inicia sesión</h4>
+            <label>
+                Correo electrónico:
+                <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} required />
+            </label>
+            <br />
+            <label>
+                Contraseña:
+                <input type="password" value={contraseña} onChange={(e) => setContraseña(e.target.value)} required />
+            </label>
+            <label>
+                Empresa:
+                <select name="empresas" id="" value={empresa} onSelect={(e) => setempresa(e.target.value)} required >
+                    {
+                        empresa.map((item)=>{
+                            return <option value={`${item}`}> {item} </option>;
+                        })
+                    }
+                
+                </select>
+            </label>
+            <br />
+            <button type="submit">Iniciar sesión</button>
+        </form>
+    );
 }
 
 export default Singform
