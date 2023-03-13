@@ -1,4 +1,5 @@
 import data from "./data.json";
+
 //codemp, user, pasword
 export default function login(codemp, email, password) {
     let user = data.usuarios.find((e) => e.codemp === codemp && e.usu === email)
