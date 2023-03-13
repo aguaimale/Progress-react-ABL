@@ -4,7 +4,7 @@ import data from "../utilities/data.json"
 
 function Singform() {
 
-    const [fields, setFields] = useState({ email: "", pass: "", company: 2 });
+    const [fields, setFields] = useState({ email: "", pass: "", company: "" });
     const [empresa, setempresa] = useState(data.empresas)
 
 
@@ -21,7 +21,7 @@ function Singform() {
     }
 
     const handleFields = (e) => {
-        setFields({    //BUENA PRACTICA PARA SETEAR LOS VALORES DE UN FORMULARIO CON IMPUT
+        setFields({    //BUENA PRACTICA PARA SETEAR LOS VALORES DE UN FORMULARIO CON INPUT
             ...fields,
             [e.target.name]: e.target.value
         })
