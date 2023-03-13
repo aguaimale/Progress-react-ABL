@@ -1,11 +1,12 @@
 import data from "./data.json";
-
-export const login = (codemp, user, pasword) => {
-    console.log(data);
-    return new Promise((resolve) =>
+//codemp, user, pasword
+export default function login(codemp, email, password) {
+    let user = data.usuarios.find((e) => e.codemp === codemp && e.usu === email)
+    return new Promise((resolve, reject) => {
         setTimeout(() => {
-            //validar los 3 parametros
-
-            //return booleano
-        }, 1200))
+            if (!user) reject(false)
+            else if (password === user.psw) resolve(true)
+            else resolve(false)
+        }, 1200)
+    })
 }

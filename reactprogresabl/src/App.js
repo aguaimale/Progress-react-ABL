@@ -1,15 +1,19 @@
 import { useEffect } from 'react';
 import './App.css';
 import Singform from './components/Singform';
-import log from './utilities/mock'
+import login from './utilities/mock'
 function App() {
-  useEffect(()=>{
-      log();
-  },[])
+  useEffect(() => {
+    login(1, "znotario@creditoargentino.com.ar", "Cl88867")
+      .then(res =>
+        console.log(res)
+      )
+      .catch(e => console.log('reject', e))
+  }, [])
   return (
     <div className="App">
       <header className="App-header">
-        <Singform/>
+        <Singform />
       </header>
     </div>
   );

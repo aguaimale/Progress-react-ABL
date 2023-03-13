@@ -1,5 +1,5 @@
 {
-    "Usuarios": [
+    "usuarios": [
         {
             "codemp": 2,
             "usu": "0001@emusimundo.com",
@@ -24346,7 +24346,7 @@
             "psw": "Cla88867"
         }
     ],
-    "Empresas": [
+    "empresas": [
         {
             "cod-emp": 1,
             "nom-emp": "Credito Argentino"
