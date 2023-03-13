@@ -1,31 +1,43 @@
 import React, { useState, useEffect } from 'react'
+import login from '../utilities/mock';
+import data from "../utilities/data.json"
 
 function Singform() {
 
-    const [fields, setFields] = useState({ email: "", pass: "", company: ""});
-    const [empresa, setempresa] = useState(["Empresa#1", "Empresa#2", "Empresa#3", "Empresa#4"])
+    const [fields, setFields] = useState({ email: "", pass: "", company: 2 });
+    const [empresa, setempresa] = useState(data.empresas)
 
-    function handleSubmit() {
-    };
+
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        //console.log(fields)
+        login(fields.company, fields.email, fields.pass)
+            .then((res) => {
+                if (res) alert("adentro")
+                else alert(" Contraseña Incorrecta")
+            })
+            
+            .catch(() => alert("error"))
+    }
 
     const handleFields = (e) => {
         setFields({    //BUENA PRACTICA PARA SETEAR LOS VALORES DE UN FORMULARIO CON IMPUT
             ...fields,
-            [e.target.name] : e.target.value
+            [e.target.name]: e.target.value
         })
         console.log(fields)
     }
 
-    const handleState = ({target}) => {
+    const handleState = ({ target }) => {
         console.log(target)
         setFields({    //BUENA PRACTICA PARA SETEAR LOS VALORES DE UN FORMULARIO CON SELECT
             ...fields,
-            company : target.value
+            company: target.value
         })
     };
     console.log(fields)
 
-    
+
 
     return (
         <form className='formulario1' onSubmit={handleSubmit}>
@@ -44,7 +56,8 @@ function Singform() {
                 <select id="" required value={fields.company} onChange={handleState}>
                     {
                         empresa.map((item) => {
-                            return <option key={Math.random()} name="company" value={`${item}`}> {item} </option>;
+
+                            return <option key={Math.random()} name="company" value={`${item['cod-emp']}`}> {item['nom-emp']} </option>;
                         })
                     }
 
