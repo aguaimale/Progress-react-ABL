@@ -13,17 +13,20 @@
   color: rgb(56, 56, 56);
 }
 
-.formulario1{
+.formulario1 {
   display: grid;
   background-color: white;
   padding: 35px;
   border-radius: 10px;
   box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
 }
-.formtitle{
-  color: #3D5AFE; 
+
+.formtitle {
+  color: #3D5AFE;
 }
-input, select {
+
+input,
+select {
   width: 100%;
   padding: 10px;
   margin-bottom: 20px;
@@ -31,6 +34,7 @@ input, select {
   border: none;
   box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
 }
+
 button {
   background-color: #3D5AFE;
   color: #ffffff;
@@ -39,4 +43,30 @@ button {
   font-size: 16px;
   cursor: pointer;
   border-radius: 5px;
+}
+
+.usertable {
+  display: grid;
+  padding-top: 50px;
+  width: 70%;
+  height: auto;
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3)
+}
+
+.userInfo {
+  display: grid;
+  width: 35%;
+  height: 75%;
+  background-color: rgb(255, 255, 255);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3)
+}
+
+.Botonagregar {
+  margin: auto;
+  margin-top: 12px;
 }
