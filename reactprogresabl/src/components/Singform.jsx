@@ -1,38 +1,53 @@
-import React, {useState} from 'react'
+import React, { useState, useEffect } from 'react'
 
 function Singform() {
 
-    const [email, setEmail] = useState([]);
-    const [contraseña, setContraseña] = useState([]);
-    const [empresa, setempresa] = useState(["Empresa#1","Empresa#2","Empresa#3","Empresa#4",])
+    const [fields, setFields] = useState({ email: "", pass: "", company: ""});
+    const [empresa, setempresa] = useState(["Empresa#1", "Empresa#2", "Empresa#3", "Empresa#4"])
 
-    function handleSubmit(){
-
+    function handleSubmit() {
     };
 
- 
+    const handleFields = (e) => {
+        setFields({    //BUENA PRACTICA PARA SETEAR LOS VALORES DE UN FORMULARIO CON IMPUT
+            ...fields,
+            [e.target.name] : e.target.value
+        })
+        console.log(fields)
+    }
+
+    const handleState = ({target}) => {
+        console.log(target)
+        setFields({    //BUENA PRACTICA PARA SETEAR LOS VALORES DE UN FORMULARIO CON SELECT
+            ...fields,
+            company : target.value
+        })
+    };
+    console.log(fields)
+
+    
 
     return (
         <form className='formulario1' onSubmit={handleSubmit}>
             <h4 className='formtitle'>Inicia sesión</h4>
             <label>
                 Correo electrónico:
-                <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} required />
+                <input type="email" name="email" value={fields.email} onChange={handleFields} required />
             </label>
             <br />
             <label>
                 Contraseña:
-                <input type="password" value={contraseña} onChange={(e) => setContraseña(e.target.value)} required />
+                <input type="password" name="pass" value={fields.pass} onChange={handleFields} required />
             </label>
             <label>
                 Empresa:
-                <select name="empresas" id="" value={empresa} onSelect={(e) => setempresa(e.target.value)} required >
+                <select id="" required value={fields.company} onChange={handleState}>
                     {
-                        empresa.map((item)=>{
-                            return <option value={`${item}`}> {item} </option>;
+                        empresa.map((item) => {
+                            return <option key={Math.random()} name="company" value={`${item}`}> {item} </option>;
                         })
                     }
-                
+
                 </select>
             </label>
             <br />
