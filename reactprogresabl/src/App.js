@@ -1,14 +1,15 @@
 import './App.css';
 import AltaDeUsuario from './components/AltaDeUsuario';
 import Singform from './components/Singform';
-import TabladeUsuarios from './components/TabladeUsuarios';
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+
 function App() {
   
   return (
     <div className="App">
       <header className="App-header">
         
-        <AltaDeUsuario/>
+        
         
 
       </header>

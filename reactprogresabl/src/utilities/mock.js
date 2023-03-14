@@ -11,3 +11,4 @@ export default function login(codemp, email, password) {
         }, 1200)
     })
 }
+
