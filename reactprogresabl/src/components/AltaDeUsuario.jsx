@@ -19,7 +19,7 @@ function AltaDeUsuario() {
     
   return (
     <div className='altausuario'>
-        <form className='formulario1' onSubmit={"handleSubmit"}>
+        <form className='formularioaltausuario' onSubmit={"handleSubmit"}>
             <h4 className='formtitle'>Crear nuevo Usuario</h4>
             <label>
                 Nombre y Apellido:
