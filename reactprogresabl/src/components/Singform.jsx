@@ -2,13 +2,19 @@ import React, { useState, useEffect } from 'react'
 import login from '../utilities/mock';
 import data from "../utilities/data.json"
 import { useNavigate } from 'react-router-dom';
+import { useDispatch, useSelector } from "react-redux";
+import { getLoged, getUsuarios } from '../redux/actions/actions';
 
 function Singform() {
 
     const [fields, setFields] = useState({ email: "", pass: "", company: "" });
     const [empresa, setempresa] = useState(data.empresas);
     const navigate = useNavigate();
+    const dispatch = useDispatch();
 
+    useEffect(()=>{
+        dispatch(getUsuarios())
+    },[])   
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -16,6 +22,7 @@ function Singform() {
         login(fields.company, fields.email, fields.pass)
             .then((res) => {
                 if (res) {
+                    dispatch(getLoged())
                     navigate("/Home");
                 }
                 else alert(" Contraseña Incorrecta")
