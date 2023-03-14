@@ -2,7 +2,10 @@ import data from "./data.json";
 
 //codemp, user, pasword
 export default function login(codemp, email, password) {
-    let user = data.usuarios.find((e) => e.codemp === codemp && e.usu === email)
+    console.log(codemp, email, password);
+    console.log(data.usuarios);
+    let user = data.usuarios.find((e) => e.codemp == codemp && e.usu === email)
+    console.log(user);
     return new Promise((resolve, reject) => {
         setTimeout(() => {
             if (!user) reject(false)
