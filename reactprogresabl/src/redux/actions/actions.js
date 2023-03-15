@@ -66,3 +66,11 @@ export function getUserDetails(id) {
 
   }
 }
+export function cleanComponent(){
+  return function(dispatch){
+    dispatch({
+      type:"GET_CLEAN",
+      payload:{},
+    })
+  }
+}

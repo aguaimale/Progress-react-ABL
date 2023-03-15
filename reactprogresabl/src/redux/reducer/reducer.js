@@ -41,6 +41,11 @@ const reducer = (state = initialState, action) => {
                     uDetail:action.payload
 
                 }
+                case "GET_CLEAN":
+                    return{
+                        ...state,
+                        uDetail: action.payload,
+                    }
         default:
             return state;
     }
