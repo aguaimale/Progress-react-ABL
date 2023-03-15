@@ -1,9 +1,9 @@
 const initialState = {
     loged: false,
     usuarios: [],
-    empresas: []
+    empresas: [],
+    uDetail: {},
 }
-
 
 const reducer = (state = initialState, action) => {
     switch (action.type) {
@@ -28,6 +28,19 @@ const reducer = (state = initialState, action) => {
                 ...state,
                 empresas: action.payload
             }
+            case "GET_USER_DETAILS":
+                
+                if (action.payload == "Usuario no encontrado") {
+                    return {
+                        ...state, 
+                        uDetail: {usu: "NO ENCONTRADO", psw: "NO", codemp: "NO"}
+                    }
+                }
+                return{
+                    ...state,
+                    uDetail:action.payload
+
+                }
         default:
             return state;
     }

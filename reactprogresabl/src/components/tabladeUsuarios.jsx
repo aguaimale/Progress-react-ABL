@@ -1,30 +1,31 @@
-import React, { useEffect,useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux';
 import data from "../utilities/data.json"
 import { getLoged, getEmpresas, getUsuarios, getUsuariosFiltro } from '../redux/actions/actions';
+import { Routes, Route, Link, useNavigate } from 'react-router-dom';
 function TabladeUsuarios() {
-    const usuarios = useSelector((state)=>state.usuarios)
-    const empresas = useSelector((state)=>state.empresas)
-    
+    const usuarios = useSelector((state) => state.usuarios)
+    const empresas = useSelector((state) => state.empresas)
+
     const [value, setValue] = useState("pepe");
     const dispatch = useDispatch();
 
-    useEffect(()=>{
+    useEffect(() => {
         dispatch(getEmpresas())
         //dispatch(getUsuarios())
-    },[usuarios])   
-    
+    }, [usuarios])
+
     const handleValue = (e) => {
-        setValue(e.target.value)     
+        setValue(e.target.value)
         dispatch(getUsuariosFiltro(value))
     }
-   
+
     return (
         <div className='usertable'>
-             
+
             <h3>Listado de usuarios registrados</h3>
             <label>
-               
+
                 <select onClick={handleValue}>
                     <option value="0">Select</option>
                     {
@@ -40,10 +41,13 @@ function TabladeUsuarios() {
                 {
                     usuarios.map((item) => {
                         return (<ul key={Math.random()} >
-                            <li>
-                                Empresa:{item.codemp};
-                                Email:{item.usu};
-                            </li>
+                            <Link to={`/detail/${item.usu}`}>
+                                <li>
+                                    Empresa:{item.codemp};
+                                    Email:{item.usu};
+
+                                </li>
+                            </Link>
 
                         </ul>);
                     })

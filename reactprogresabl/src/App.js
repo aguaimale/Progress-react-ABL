@@ -5,6 +5,7 @@ import { Routes, Route, Link, useNavigate } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import { useSelector } from 'react-redux';
 import Redirect from './components/Redirect';
+import Detail from './components/Detail';
 
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
 
         <Routes>
           <Route exact path="/" element={<Singform />} />
+          <Route exact path="/detail/:id" element={<Detail/>} />
           <Route path="/Home" element={
             <>
               {state ?
