@@ -20,6 +20,7 @@ export function getUsuarios() {
   }
 }
 export function getUsuariosFiltro(id) {
+  
   if (id == 0) {
     return function (dispatch) {
       dispatch({
@@ -29,7 +30,7 @@ export function getUsuariosFiltro(id) {
     }
   }
   let usus = data.usuarios.filter(e => e.codemp == id)
-  console.log(usus)
+ 
   return function (dispatch) {
     dispatch({
       type: "GET_USERS_FILTRO",

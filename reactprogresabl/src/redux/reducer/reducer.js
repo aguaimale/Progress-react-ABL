@@ -1,7 +1,7 @@
 const initialState = {
     loged: false,
     usuarios: [],
-    empresas: [],
+    empresas: [{ "cod-emp": 99, "nom-emp": "Seleccione" }],
     uDetail: {},
 }
 
@@ -24,9 +24,11 @@ const reducer = (state = initialState, action) => {
                 usuarios: action.payload
             }
             case "GET_EMPRESAS":
-            return {
-                ...state,
-                empresas: action.payload
+            if (state.empresas.length <= 1) {
+                return {
+                    ...state,
+                    empresas: [...state.empresas, ...action.payload]
+                }      
             }
             case "GET_USER_DETAILS":
                 

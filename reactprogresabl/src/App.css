@@ -28,6 +28,9 @@ h3{
 .formtitle {
   color: #3D5AFE;
 }
+.label{
+  height: 20px;
+}
 
 input,
 select {
@@ -55,7 +58,7 @@ button {
   padding-top: 50px;
   margin-right: 20px;
   width: 70%;
-  height: 72.5vh;
+  height: auto;
   background-color: white;
   padding: 20px;
   border-radius: 10px;
@@ -69,7 +72,8 @@ button {
   border: 1px solid #ccc;
   padding: 10px;
   width: 90%;
-  height:290px;
+  height:300px;
+ 
   overflow: hidden;
   overflow: scroll;
   overflow-x: hidden;

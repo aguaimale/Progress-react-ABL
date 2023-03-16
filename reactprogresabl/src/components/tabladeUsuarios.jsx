@@ -7,27 +7,37 @@ function TabladeUsuarios() {
     const usuarios = useSelector((state) => state.usuarios)
     const empresas = useSelector((state) => state.empresas)
 
-    const [value, setValue] = useState("pepe");
+    const [value, setValue] = useState(0);
     const dispatch = useDispatch();
 
     useEffect(() => {
         dispatch(getEmpresas())
         //dispatch(getUsuarios())
-    }, [usuarios])
+    }, [])
+
+    useEffect(() => {
+        if(  value !== 99){
+        dispatch(getUsuariosFiltro(value))
+        
+        }
+    }, [value])
+
 
     const handleValue = (e) => {
-        setValue(e.target.value)
-        dispatch(getUsuariosFiltro(value))
+        if (e.target.value != 99) {
+
+            console.log(e.target.value)
+            setValue(e.target.value)
+        }
     }
 
     return (
         <div className='usertable'>
 
             <h3>Listado de usuarios registrados</h3>
-            <label>
+            <label className='label'>
 
                 <select onClick={handleValue}>
-                    <option value="0">Select</option>
                     {
                         empresas.map((item) => {
 
